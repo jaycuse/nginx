@@ -581,7 +581,7 @@ while getopts ":h6B:b:C:c:g:e:f:pPHI:in:R:r:s:S:t:T:U:u:w:q" opt; do
         T) eval stream $(sed 's/^\|$/"/g; s/;/" "/g' <<< $OPTARG) ;;
         U) eval http_user $(sed 's/^\|$/"/g; s/;/" "/g' <<< $OPTARG) ;;
         u) eval uwsgi $(sed 's/^\|$/"/g; s/;/" "/g' <<< $OPTARG) ;;
-        w) eval proxy $(sed 's/^\|$/"/g; s/;/" "/g' <<< $OPTARG) ;;
+        w) eval proxy $(sed 's/^\|$/"/g; s/;/" "/g; s/$/"/g' <<< $OPTARG) ;;
         "?") echo "Unknown option: -$OPTARG"; usage 1 ;;
         ":") echo "No argument value for option: -$OPTARG"; usage 2 ;;
     esac
